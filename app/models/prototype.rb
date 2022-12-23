@@ -3,14 +3,14 @@ class Prototype < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
 
-  validates :title, presence: true, unless: :was_attached?
+  validates :title, presence: true #, unless: :was_attached?
   
-  def was_attached?
-    self.image.attached?
-  end
+  #def was_attached?
+    #self.image.attached?
+  #end
 
   validates :catch_copy, presence: true
   validates :concept, presence: true
-  #validates :image, presence: true
+  validates :image, presence: true
 
 end
