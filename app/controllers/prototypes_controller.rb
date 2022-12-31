@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+  protect_from_forgery 
   before_action :authenticate_user!, except:[:index, :show, :edit]
   #before_action :move_to_index, {only: [:edit]}
 
@@ -13,7 +14,7 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
-      redirect_to prototypes_path(@prototype)
+      redirect_to root_path
     else
       render :new
     end
